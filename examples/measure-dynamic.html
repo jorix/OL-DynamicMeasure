@@ -275,7 +275,7 @@
             </li>
             <li>
                 <input type="radio" name="type" value="line" id="lineToggle" onclick="toggleControl(this);" />
-                <label for="lineToggle">measure distance</label>
+                <label for="lineToggle">measure distance -dynamic-</label>
             </li>
             <li>
                 <input type="radio" name="type" value="polygon" id="polygonToggle" onclick="toggleControl(this);" />
@@ -285,10 +285,11 @@
                 <input type="checkbox" name="geodesic" id="geodesicToggle" onclick="toggleGeodesic(this);" />
                 <label for="geodesicToggle">use geodesic measures</label>
             </li>
-            <li>
+            <li>&nbsp;*&nbsp; use only immediate measures ("control.setImmediate" does not work)</li>
+            <!-- li>
                 <input type="checkbox" name="immediate" id="immediateToggle" onclick="toggleImmediate(this);" />
                 <label for="immediateToggle">use immediate measures</label>
-            </li>
+            </li -->
         </ul>
         <p>Note that the geometries drawn are planar geometries and the
         metrics returned by the measure control are planar measures by
