@@ -15,3 +15,8 @@ Problems:
    * NOTE: In the proposal `immediate` is `true` but `setImmediate` does not work.
 
 See the [proposal dynamic measure for 2.11](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (a clone adapted from [examples/measure.html](http://www.openlayers.org/dev/examples/measure.html))
+
+GOALS: 
+------
+
+Make "DynamicMeasure" a plug and play control for OpenLayers, the start... 

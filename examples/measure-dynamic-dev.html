@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>OpenLayers Measure Example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
-    <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
-    <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+    <script src="../../OL-FeaturePopups/lib/releaseEnvirontment.js"></script>
+    <script>
+        var release = new releaseEnvironment({
+            defaults: {patch: false}, 
+            patches: []
+        });
+        release.writeScripts();
+    </script>
     <script src="../lib/OpenLayers/Control/DynamicMeasure.js"></script>
     <style type="text/css">
         #controlToggle li {
@@ -158,6 +164,10 @@
   </head>
   <body onload="init()">
     <h1 id="title">OpenLayers Measure Example</h1>
+    <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
     <div id="tags">
         measuring, geodesic, area, length, distance
     </div>
