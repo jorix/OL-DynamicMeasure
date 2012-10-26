@@ -48,6 +48,7 @@
             // allow testing of specific renderers via "?renderer=Canvas", etc
             var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
             renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+            OpenLayers.Layer.Vector.prototype.renderers = renderer;
 
             measureControls = {
                 line: new OpenLayers.Control.DynamicMeasure(
@@ -148,11 +149,10 @@
                 <input type="checkbox" name="geodesic" id="geodesicToggle" onclick="toggleGeodesic(this);" />
                 <label for="geodesicToggle">use geodesic measures</label>
             </li>
-            <li>&nbsp;*&nbsp; use only immediate measures ("control.setImmediate" does not work)</li>
-            <!-- li>
-                <input type="checkbox" name="immediate" id="immediateToggle" onclick="toggleImmediate(this);" />
+            <li>
+                <input type="checkbox" checked="checked" name="immediate" id="immediateToggle" onclick="toggleImmediate(this);" />
                 <label for="immediateToggle">use immediate measures</label>
-            </li -->
+            </li>
         </ul>
         <p>Note that the geometries drawn are planar geometries and the
         metrics returned by the measure control are planar measures by
