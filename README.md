@@ -34,7 +34,9 @@ Examples:
 
 Documentation:
 --------------
-TODO
+ * [API for users](http://jorix.github.com/OL-DynamicMeasure/doc/DynamicMeasure/api)
+ * For developers
+   * [all `DynamicMeasure` elements](http://jorix.github.com/OL-DynamicMeasure/doc/DynamicMeasure/all)
 
 Compatibility with OpenLayers releases:
 ---------------------------------------
