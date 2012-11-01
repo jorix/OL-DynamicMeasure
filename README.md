@@ -1,21 +1,51 @@
-GOALS: 
-------
-Make "DynamicMeasure" a plug and play control for OpenLayers... **work in progress**
+Control for OpenLayers to measure and shows measurements at the cursor
+======================================================================
 
-Proposal to implement dynamic measure in OpenLayers 2.11 
-========================================================
+Based on `OpenLayers.Control.Measure`, the **DynamicMeasure** control shows
+measurements on labels that follow the cursor. This avoids having to worry
+about preparing a DOM item to display measurements.
 
-According [**Yus's question in DEV**](http://osgeo-org.1803224.n2.nabble.com/Adding-Segment-Length-to-Path-tc7029815.html).
----------------------
+The control also has preset styles to show lines and labels, so the only thing
+to do is add it to the map.
 
-After changes in callbacks due to [pan while drawing (#3052)](http://trac.osgeo.org/openlayers/ticket/3052) must rethink the implementation in OpenLayers 2.10 exposed by Yus.
+Operation:
+---------
 
-Problems:
---------
- * Labels do not remain at the end of measure.
- * Using the freehand the map is dirtied by the labels.
- * Layer of the labels (`vlayer`) should be on top of the drawing layer.
- * Allow the use of immediate measure (new in 2.11) 
-   * NOTE: In the proposal `immediate` is `true` but `setImmediate` does not work.
+Example:
 
-See the [proposal dynamic measure for 2.11](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (a clone adapted from [examples/measure.html](http://www.openlayers.org/dev/examples/measure.html))
+```javascript
+    ...
+    // to mesure length
+    var cMeasure = new OpenLayers.Control.DynamicMeasure(OpenLayers.Handler.Path);
+    map.addControl(cMeasure);
+    ...
+    // ... and to start measuring
+    cMeasure.activate();
+    ...
+    // ... and to stop it
+    cMeasure.deactivate();
+    ...
+```
+
+Examples:
+---------
+ * [measure-dynamic.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (a clone adapted from "measure.html" OpenLayers example)
+
+
+Documentation:
+--------------
+TODO
+
+Compatibility with OpenLayers releases:
+---------------------------------------
+The `DynamicMeasure` control works correctly with release 2.11 or higher
+including the development version.
+
+Background
+----------
+According [**Yus's question in DEV**](http://osgeo-org.1803224.n2.nabble.com/Adding-Segment-Length-to-Path-tc7029815.html)
+some adjustments are made to solve some problems: 
+labels do not remain at the end of measure,
+using the freehand the map is dirtied by the labels,
+layer of the labels (`vlayer`) should be on top of the drawing layer,
+allow use of immediate measure (new in 2.11) 
