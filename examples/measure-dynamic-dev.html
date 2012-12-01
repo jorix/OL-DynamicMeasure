@@ -6,10 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="http://jorix.github.com/OL-FeaturePopups/lib/releaseEnvirontment.js"></script>
     <script>
-        var release = new releaseEnvironment({
-            defaults: {patch: false}, 
-            patches: []
-        });
+        var release = new releaseEnvironment();
         release.writeScripts();
     </script>
     <script src="../lib/OpenLayers/Control/DynamicMeasure.js"></script>
