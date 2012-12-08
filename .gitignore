@@ -1,6 +1,5 @@
 /tools
 /build
-
+/doc/_scripts/NaturalDocs.bat
 /doc/DynamicMeasure/all/_config/Data
 /doc/DynamicMeasure/api/_config/Data
-/doc/_scripts/NaturalDocs.bat

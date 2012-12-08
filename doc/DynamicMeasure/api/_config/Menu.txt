@@ -24,6 +24,11 @@ SubTitle: from OpenLayers 2.11, 2.12 &amp; dev
 #   yyyy  - Four digit year.  2006 is "2006"
 #   year  - Four digit year.  2006 is "2006"
 
+# These are indexes you deleted, so Natural Docs will not add them again
+# unless you remove them from this line.
+
+Don't Index: General, Functions, Constructor, Constants, Classes, Properties
+
 
 # --------------------------------------------------------------------------
 # 
@@ -46,14 +51,3 @@ SubTitle: from OpenLayers 2.11, 2.12 &amp; dev
 
 
 File: DynamicMeasure  (DynamicMeasure.js)
-
-Group: Index  {
-
-   Index: Everything
-   Class Index: Classes
-   Constant Index: Constants
-   Constructor Index: Constructor
-   Function Index: Functions
-   Property Index: Properties
-   }  # Group: Index
-
