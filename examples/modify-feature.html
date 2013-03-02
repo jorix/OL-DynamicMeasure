@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="lang" content="en" />
+    <meta name="author" content="Jorix" />
+    <meta name="description" content="Usage example of ModifyFeature control for editing and deleting vector features." />
+    <meta name="keywords" content="OpenLayers, vertices, draw, drawing, modify, delete" />
+    <link rel="stylesheet" href="http://jorix.github.com/OL-Ragbag/examples/github-pages/forkme_banner.css" type="text/css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Example of OpenLayers to Modify and Delete features</title>
+
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+    <style type="text/css">
+        #controlToggle {padding-left: 1em;}
+        #controlToggle li {list-style: none;}
+        .inline li {display: inline};
+    </style>
+
+    <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+    <script src="../lib/Ragbag/Control/ModifyFeature-patch.js"></script>
+
+  </head>
+  <body>
+    <h1 id="title">Example of OpenLayers to Modify and Delete features</h1>
+    <a id="forkme_banner" href="https://github.com/jorix/OL-Ragbag/blob/gh-pages/README.md#improve-modifyfeature-control-using-keys-del-and-esc">View on GitHub</a>
+    <div id="tags">vertices, draw, drawing, modify, delete</div>
+    <div id="shortdesc">Example of ModifyFeature control for editing and deleting vector features.</div>
+    <div id="map" class="smallmap"></div>
+    <div id="controls">
+        <ul id="controlToggle">
+            <li>
+                <input type="radio" name="type" value="none" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                <label for="noneToggle">none</label>
+            </li>
+            <li>
+                <input type="radio" name="type" value="point" id="pointToggle" onclick="toggleControl(this);" />
+                <label for="pointToggle">draw point</label>
+            </li>
+            <li>
+                <input type="radio" name="type" value="line" id="lineToggle" onclick="toggleControl(this);" />
+                <label for="lineToggle">draw line</label>
+            </li>
+            <li>
+                <input type="radio" name="type" value="polygon" id="polygonToggle" onclick="toggleControl(this);" />
+                <label for="polygonToggle">draw polygon</label>
+            </li>
+
+            <li>
+                <input type="radio" name="type" value="modify" id="modifyToggle" onclick="toggleControl(this);" />
+                <label for="modifyToggle">modify feature</label>
+                <ul>
+                    <li>
+                        allow delete feature by del-key, choose mode:
+                        <ul class="inline">
+                            <li>
+                                <input type="radio" name="delkeymethod" value="always" onclick="toggleDelKeyMode(this);" id="delkeymethod_always" checked="checked" />
+                                <label for="delkeymethod_always">always</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="delkeymethod" value="bounds" onclick="toggleDelKeyMode(this);" id="delkeymethod_bounds" />
+                                <label for="delkeymethod_bounds">bounds</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="delkeymethod" value="hover" onclick="toggleDelKeyMode(this);" id="delkeymethod_hover" />
+                                <label for="delkeymethod_hover">hover</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="delkeymethod" value="none" onclick="toggleDelKeyMode(this);" id="delkeymethod_none" />
+                                <label for="delkeymethod_none">none</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="createVertices" id="createVertices" onchange="updateModifyControl()" checked="checked" />
+                        <label for="createVertices">allow vertices creation</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="rotate" id="rotate" onchange="updateModifyControl()" />
+                        <label for="rotate">allow rotation</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="resize" id="resize" onchange="updateModifyControl()" />
+                        <label for="resize">allow resizing</label>
+                        (<input type="checkbox" name="keepAspectRatio" id="keepAspectRatio" onchange="updateModifyControl()" checked="checked" />
+                         <label for="keepAspectRatio">keep aspect ratio</label>)
+                    </li>
+                    <li>
+                        <input type="checkbox" name="drag" id="drag" onchange="updateModifyControl()" />
+                        <label for="drag">allow dragging</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="docs">
+        <p>
+            View the <a href="modify-feature.js" target="_blank">modify-feature.js</a> 
+            source to see how this is done.
+        </p>
+    </div>
+    <script src="modify-feature.js" type="text/javascript"></script>
+  </body>
+</html>

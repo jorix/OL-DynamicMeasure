@@ -2,121 +2,40 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="lang" content="en" />
+    <meta name="author" content="Jorix" />
+    <meta name="description" content="Usage example of DynamicMeasure control for see measurements beside the cursor." />
+    <meta name="keywords" content="OpenLayers, measuring, dynamic, area, length, distance, cursor" />
+    <link rel="stylesheet" href="http://jorix.github.com/OL-Ragbag/examples/github-pages/forkme_banner.css" type="text/css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Example of OpenLayers to see measurements beside the cursor</title>
+
     <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
     <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
     <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
     <script src="../lib/OpenLayers/Control/DynamicMeasure.js"></script>
+
     <style type="text/css">
         #controlToggle li {
             list-style: none;
-        }
-        p {
-            width: 512px;
         }
         #options {
             position: relative;
             width: 512px;
         }
-        #output {
-            float: right;
-        }
-
-        /* avoid pink tiles */
-        .olImageLoadError {
-            background-color: transparent !important;
-        }
     </style>
-    <script type="text/javascript">
-        var map, measureControls;
-        function init(){
-            map = new OpenLayers.Map('map');
-            
-            var wmsLayer = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
-                "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers: 'basic'}); 
-
-            map.addLayers([wmsLayer]);
-            map.addControl(new OpenLayers.Control.LayerSwitcher());
-            map.addControl(new OpenLayers.Control.MousePosition());
-            
-            // allow testing of specific renderers via "?renderer=Canvas", etc
-            var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
-            renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
-            OpenLayers.Layer.Vector.prototype.renderers = renderer;
-
-            measureControls = {
-                line: new OpenLayers.Control.DynamicMeasure(
-                    OpenLayers.Handler.Path
-                ),
-                polygon: new OpenLayers.Control.DynamicMeasure(
-                    OpenLayers.Handler.Polygon
-                )
-            };
-            
-            var control;
-            for(var key in measureControls) {
-                control = measureControls[key];
-                control.events.on({
-                    "measure": handleMeasurements,
-                    "measurepartial": handleMeasurements
-                });
-                map.addControl(control);
-            }
-            
-            map.setCenter(new OpenLayers.LonLat(0, 0), 3);
-            
-            document.getElementById('noneToggle').checked = true;
-        }
-        
-        function handleMeasurements(event) {
-            var geometry = event.geometry;
-            var units = event.units;
-            var order = event.order;
-            var measure = event.measure;
-            var element = document.getElementById('output');
-            var out = "";
-            if(order == 1) {
-                out += "measure: " + measure.toFixed(3) + " " + units;
-            } else {
-                out += "measure: " + measure.toFixed(3) + " " + units + "<sup>2</" + "sup>";
-            }
-            element.innerHTML = out;
-        }
-
-        function toggleControl(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                if(element.value == key && element.checked) {
-                    control.activate();
-                } else {
-                    control.deactivate();
-                }
-            }
-        }
-        
-        function toggleGeodesic(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                control.geodesic = element.checked;
-            }
-        }
-        
-        function toggleImmediate(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                control.setImmediate(element.checked);
-            }
-        }
-    </script>
   </head>
-  <body onload="init()">
+  <body>
     <h1 id="title">OpenLayers Measure Example</h1>
+    <a id="forkme_banner" href="https://github.com/jorix/OL-DynamicMeasure">View on GitHub</a>
     <div id="tags">
-        measuring, geodesic, area, length, distance
+        measuring, dynamic, area, length, distance, cursor
     </div>
     <p id="shortdesc">
-        Demonstrates the measure control to measure distances and areas.
+        Demonstrates the dynamic measure control to measure and see measurements beside the cursor.
     </p>
     <div id="map" class="smallmap"></div>
     <div id="options">
@@ -130,29 +49,24 @@
             </li>
             <li>
                 <input type="radio" name="type" value="line" id="lineToggle" onclick="toggleControl(this);" />
-                <label for="lineToggle">measure distance -dynamic-</label>
+                <label for="lineToggle">measure distance</label>
             </li>
             <li>
                 <input type="radio" name="type" value="polygon" id="polygonToggle" onclick="toggleControl(this);" />
                 <label for="polygonToggle">measure area</label>
             </li>
             <li>
-                <input type="checkbox" name="geodesic" id="geodesicToggle" onclick="toggleGeodesic(this);" />
-                <label for="geodesicToggle">use geodesic measures</label>
-            </li>
-            <li>
-                <input type="checkbox" checked="checked" name="immediate" id="immediateToggle" onclick="toggleImmediate(this);" />
-                <label for="immediateToggle">use immediate measures</label>
+                <input type="checkbox" checked="checked" name="displaysegments" id="displaysegmentsToggle" onclick="toggleDisplaySegments(this);" />
+                <label for="displaysegmentsToggle">display segments length</label>
             </li>
         </ul>
-        <p>Note that the geometries drawn are planar geometries and the
-        metrics returned by the measure control are planar measures by
-        default.  If your map is in a geographic projection or you have the
-        appropriate projection definitions to transform your geometries into
-        geographic coordinates, you can set the "geodesic" property of the control
-        to true to calculate geodesic measures instead of planar measures.
-        Also you have the possibility to set the "immediate" property to true
-        to get a new calculated value once the mouse has been mooved.</p>
     </div>
+    <div id="docs">
+        <p>
+            View the <a href="measure-dynamic.js" target="_blank">measure-dynamic.js</a> 
+            source to see how this is done.
+        </p>
+    </div>
+    <script src="measure-dynamic.js"></script>
   </body>
 </html>
