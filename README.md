@@ -8,6 +8,10 @@ about preparing a DOM item to display measurements.
 The control also has preset styles to show lines and labels, so the only thing
 to do is add it to the map.
 
+Examples:
+---------
+ * [measure-dynamic.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (adapted from "measure.html" OpenLayers example)
+
 Operation:
 ---------
 
@@ -27,10 +31,8 @@ Example:
     ...
 ```
 
-Examples:
----------
- * [measure-dynamic.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (a clone adapted from "measure.html" OpenLayers example)
-
+This control is now adapted to handle the methods *undo* *redo* and *cancel* of drawing handlers.
+See the example [measure-dynamic-dev.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamicdev.html) (allows choose whether to use the patch posted on [OL-Ragbag](https://github.com/jorix/OL-Ragbag/blob/gh-pages/README.md#the-components))
 
 Documentation:
 --------------
