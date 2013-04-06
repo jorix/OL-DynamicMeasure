@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="lang" content="en">
+    <meta name="author" content="Jorix">
+    <meta name="description" content="Usage example of f DynamicMeasure control for measure and draw vector features.">
+    <meta name="keywords" content="OpenLayers, vertices, draw, drawing, modify, delete">
+    <link rel="stylesheet" href="http://jorix.github.com/OL-Ragbag/examples/github-pages/forkme_banner.css" type="text/css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Example of OpenLayers to measure and draw features</title>
+
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+    <style type="text/css">
+        #controlToggle {padding-left: 1em;}
+        #controlToggle li {list-style: none;}
+    </style>
+
+    <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+    <script src="../lib/OpenLayers/Control/DynamicMeasure.js"></script>
+
+
+  </head>
+  <body>
+    <h1 id="title">Example of OpenLayers to measure and draw features</h1>
+    <a id="forkme_banner" href="https://github.com/jorix/OL-Ragbag/blob/gh-pages/README.md">View on GitHub</a>
+    <div id="tags">vertices, draw, measure, drawing, modify, delete</div>
+    <div id="shortdesc">Example of DynamicMeasure control for measure and draw vector features.</div>
+    <div id="map" class="smallmap"></div>
+    <div id="controls">
+        <ul id="controlToggle">
+            <li>
+                <input type="radio" name="type" value="none" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                <label for="noneToggle">none</label>
+            </li>
+            <li>
+                <input type="radio" name="type" value="line" id="lineToggle" onclick="toggleControl(this);" />
+                <label for="lineToggle">draw line</label>
+            </li>
+            <li>
+                <input type="radio" name="type" value="polygon" id="polygonToggle" onclick="toggleControl(this);" />
+                <label for="polygonToggle">draw polygon</label>
+            </li>
+        </ul>
+    </div>
+    <div id="docs">
+        <p>
+            View the <a href="measure-and-draw.js" target="_blank">measure-and-draw.js</a> 
+            source to see how this is done.
+        </p>
+    </div>
+    <script src="measure-and-draw.js" type="text/javascript"></script>
+  </body>
+</html>
