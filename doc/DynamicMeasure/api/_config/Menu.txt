@@ -27,7 +27,7 @@ SubTitle: Compatible with OpenLayers 2.11, 2.12 &amp; dev
 # These are indexes you deleted, so Natural Docs will not add them again
 # unless you remove them from this line.
 
-Don't Index: General, Functions, Constructor, Constants, Classes, Properties
+Don't Index: General, Constructor, Functions, Classes, Constants, Properties
 
 
 # --------------------------------------------------------------------------
