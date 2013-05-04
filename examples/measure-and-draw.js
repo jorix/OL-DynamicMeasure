@@ -14,7 +14,7 @@ OpenLayers.Feature.Vector.style['default']['strokeWidth'] = '3';
 
 // To report draw modify and delete events
 var reportEvent;
-if (console && console.log) {
+if (window.console && window.console.log) {
     reportEvent = function(event) {
         console.log(event.type,
                     event.feature ? event.feature.id : event.components);
