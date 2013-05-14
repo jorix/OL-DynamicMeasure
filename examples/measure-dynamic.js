@@ -37,7 +37,16 @@
         }
     }
     function toggleDisplaySegments(element) {
-        for(var key in measureControls) {
-            measureControls[key].layerSegments.setVisibility(element.checked);
+        for (var key in measureControls) {
+            var control = measureControls[key];
+            if (element.checked) {
+                delete control.layerSegmentsOptions;
+            } else {
+                control.layerSegmentsOptions = null;
+            }
+            if (control.active) {
+                control.deactivate();
+                control.activate();
+            }
         }
     }
