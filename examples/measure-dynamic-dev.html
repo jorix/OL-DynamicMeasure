@@ -66,8 +66,17 @@
                 <label for="polygonToggle">measure area</label>
             </li>
             <li>
-                <input type="checkbox" checked="checked" name="displaysegments" id="displaysegmentsToggle" onclick="toggleDisplaySegments(this);" />
-                <label for="displaysegmentsToggle">display segments length</label>
+                <label for="maxSegments">Segments to display</label>
+                <input type="text" value="1" size="3" name="maxSegments" id="maxSegments" onchange="changeMaxSegments(this);" />
+                (leave blank for all)
+            </li>
+            <li>
+                <input type="checkbox" checked="checked" name="showSegments" id="showSegments" onclick="toggleShowSegments(this);" />
+                <label for="showSegments">show segments length</label>
+            </li>
+            <li>
+                <input type="checkbox" checked="checked" name="showPerimeter" id="showPerimeter" onclick="toggleShowPerimeter(this);" />
+                <label for="showPerimeter">show the area perimeter length</label>
             </li>
         </ul>
     </div>

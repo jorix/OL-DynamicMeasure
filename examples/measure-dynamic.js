@@ -40,8 +40,12 @@
         for (var key in measureControls) {
             var control = measureControls[key];
             if (element.checked) {
+                // * set `layerSegmentsOptions` at control creation as a object
+                //   or not defined to display length of segments.
                 delete control.layerSegmentsOptions;
             } else {
+                // * set `layerSegmentsOptions` at control creation to null to
+                //   not display.
                 control.layerSegmentsOptions = null;
             }
             if (control.active) {
@@ -53,8 +57,11 @@
     function toggleShowPerimeter(element) {
         var control = measureControls.polygon;
         if (element.checked) {
+            // * set `layerLengthOptions` as a object or undefined to display
+            //   length of perimeter.
             delete control.layerLengthOptions;
         } else {
+            // * set `layerLengthOptions` to null to not display.
             control.layerLengthOptions = null;
         }
         if (control.active) {
