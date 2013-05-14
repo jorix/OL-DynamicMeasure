@@ -2,7 +2,7 @@ Format: 1.52
 
 
 Title: DynamicMeasure
-SubTitle: Compatible with OpenLayers 2.11, 2.12 &amp; dev
+SubTitle: Compatible with OpenLayers from 2.11 to 2.13 &amp; dev
 
 # You can add a footer to your documentation like this:
 # Footer: [text]
