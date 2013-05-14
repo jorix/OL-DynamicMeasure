@@ -28,7 +28,7 @@
 
 // functions used in the form to set the measure control.
     function toggleControl(element) {
-        for(var key in measureControls) {
+        for (var key in measureControls) {
             if(element.value === key && element.checked) {
                 measureControls[key].activate();
             } else {
@@ -36,7 +36,7 @@
             }
         }
     }
-    function toggleDisplaySegments(element) {
+    function toggleShowSegments(element) {
         for (var key in measureControls) {
             var control = measureControls[key];
             if (element.checked) {
@@ -48,5 +48,25 @@
                 control.deactivate();
                 control.activate();
             }
+        }
+    }
+    function toggleShowPerimeter(element) {
+        var control = measureControls.polygon;
+        if (element.checked) {
+            delete control.layerLengthOptions;
+        } else {
+            control.layerLengthOptions = null;
+        }
+        if (control.active) {
+            control.deactivate();
+            control.activate();
+        }
+    }
+    function changeMaxSegments(element) {
+        var maxSegments = element.value !== '' ?
+                parseInt(element.value, 10) :
+                null;
+        for(var key in measureControls) {
+            measureControls[key].maxSegments = maxSegments;
         }
     }
