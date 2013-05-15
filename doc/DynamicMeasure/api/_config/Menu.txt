@@ -1,12 +1,10 @@
 Format: 1.52
 
 
-Title: DynamicMeasure
+Title: Dynamic Measure
 SubTitle: Compatible with OpenLayers from 2.11 to 2.13 &amp; dev
 
-# You can add a footer to your documentation like this:
-# Footer: [text]
-# If you want to add a copyright notice, this would be the place to do it.
+Footer: <a href="https://github.com/jorix">View on github.com/jorix</a><a id="forkme_banner" href="https://github.com/jorix/OL-DynamicMeasure">View on GitHub</a>
 
 # You can add a timestamp to your documentation like one of these:
 # Timestamp: Generated on month day, year
