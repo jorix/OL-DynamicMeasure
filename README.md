@@ -8,6 +8,8 @@ about preparing a DOM item to display measurements.
 The control also has preset styles to show lines and labels, so the only thing
 to do is add it to the map.
 
+Control allows displaying lengths and headings of the segments that form a polyline or a polygon.
+
 Examples:
 ---------
  * [measure-dynamic.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-dynamic.html) (adapted from "measure.html" OpenLayers example)
