@@ -69,11 +69,28 @@
             control.activate();
         }
     }
+    function toggleShowHeading(element) {
+        for (var key in measureControls) {
+            var control = measureControls[key];
+            if (element.checked) {
+                // * set `layerHeadingOptions` as a object to display heading.
+                control.layerHeadingOptions = {};
+            } else {
+                // * set `layerHeadingOptions` to null to not display.
+                control.layerHeadingOptions = null;
+            }
+            if (control.active) {
+                control.deactivate();
+                control.activate();
+            }
+        }
+    }
     function changeMaxSegments(element) {
         var maxSegments = element.value !== '' ?
                 parseInt(element.value, 10) :
                 null;
         for(var key in measureControls) {
             measureControls[key].maxSegments = maxSegments;
+            measureControls[key].maxHeadings = maxSegments;
         }
     }
