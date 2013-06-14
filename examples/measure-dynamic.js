@@ -8,8 +8,8 @@
     var map = new OpenLayers.Map({
         div: 'map',
         layers: [
-            new OpenLayers.Layer.WMS( "OpenLayers WMS", 
-            "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers: 'basic'})
+            new OpenLayers.Layer.WMS('OpenLayers WMS',
+            'http://vmap0.tiles.osgeo.org/wms/vmap0?', {layers: 'basic'})
         ]
     });
     map.setCenter(new OpenLayers.LonLat(0, 0), 3);
@@ -29,7 +29,7 @@
 // functions used in the form to set the measure control.
     function toggleControl(element) {
         for (var key in measureControls) {
-            if(element.value === key && element.checked) {
+            if (element.value === key && element.checked) {
                 measureControls[key].activate();
             } else {
                 measureControls[key].deactivate();
@@ -69,11 +69,28 @@
             control.activate();
         }
     }
+    function toggleShowHeading(element) {
+        for (var key in measureControls) {
+            var control = measureControls[key];
+            if (element.checked) {
+                // * set `layerHeadingOptions` as a object to display heading.
+                control.layerHeadingOptions = {};
+            } else {
+                // * set `layerHeadingOptions` to null to not display.
+                control.layerHeadingOptions = null;
+            }
+            if (control.active) {
+                control.deactivate();
+                control.activate();
+            }
+        }
+    }
     function changeMaxSegments(element) {
         var maxSegments = element.value !== '' ?
                 parseInt(element.value, 10) :
                 null;
-        for(var key in measureControls) {
+        for (var key in measureControls) {
             measureControls[key].maxSegments = maxSegments;
+            measureControls[key].maxHeadings = maxSegments;
         }
     }

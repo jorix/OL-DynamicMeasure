@@ -9,6 +9,13 @@ Development code that is considered stable in the is in the *gh-pages* branch (n
 (open for suggestions)
 
 
+### v1.2.0
+
+#### Improvements
+
+ * Show bearing/heading of the segments.
+ * Allows customize label positions.
+
 ### [v1.1.0](https://github.com/jorix/OL-DynamicMeasure/tree/v1.1.0)
 
 #### Improvements
