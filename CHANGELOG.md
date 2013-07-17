@@ -10,6 +10,13 @@ On development
 (open for suggestions)
 
 
+[v1.2.1](https://github.com/jorix/OL-DynamicMeasure/tree/v1.2.1)
+----------------------------------------------------------------
+
+#### Bugs
+ * When the map is panned elements (labels or lines) may not be displayed ([issue #4](https://github.com/jorix/OL-DynamicMeasure/pull/4))
+
+
 [v1.2.0](https://github.com/jorix/OL-DynamicMeasure/tree/v1.2.0)
 ----------------------------------------------------------------
 
