@@ -41,7 +41,7 @@
             var control = measureControls[key];
             if (element.checked) {
                 // * set `layerSegmentsOptions` at control creation as a object
-                //   or not defined to display length of segments.
+                //   or undefined to display length of segments.
                 delete control.layerSegmentsOptions;
             } else {
                 // * set `layerSegmentsOptions` at control creation to null to
@@ -73,7 +73,8 @@
         for (var key in measureControls) {
             var control = measureControls[key];
             if (element.checked) {
-                // * set `layerHeadingOptions` as a object to display heading.
+                // * set `layerHeadingOptions` as a object or undefined to
+                //   display heading.
                 control.layerHeadingOptions = {};
             } else {
                 // * set `layerHeadingOptions` to null to not display.
@@ -94,3 +95,11 @@
             measureControls[key].maxHeadings = maxSegments;
         }
     }
+
+// Set current values, needed if form is reloaded with values
+    toggleShowSegments(document.getElementById("showSegments"));
+    toggleShowPerimeter(document.getElementById("showPerimeter"));
+    toggleShowHeading(document.getElementById("showHeading"));
+    changeMaxSegments(document.getElementById("maxSegments"));
+    toggleControl(document.getElementById("lineToggle"));
+    toggleControl(document.getElementById("polygonToggle"));
