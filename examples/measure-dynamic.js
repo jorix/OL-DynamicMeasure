@@ -16,9 +16,22 @@
 
 // The measure controls
     var measureControls = {
-        line: new OpenLayers.Control.DynamicMeasure(OpenLayers.Handler.Path),
+        /* NOTE: Should be sure whether projection requires `{geodesic:true}`.
+          See: http://dev.openlayers.org/docs/files/OpenLayers/Control/Measure-js.html#OpenLayers.Control.Measure.geodesic
+          ""
+            Geodesic calculation works the same in both the ScaleLine and Measure
+            controls, so it has the same prerequisites. The advice that proj4js
+            is needed to make it work is only true to the extent it is with any
+            re-projection in OpenLayers: as long as your map is in EPSG:900913,
+            you don't need proj4js. As soon as you use a different projection,
+            you need it.
+          "" (from comment by Andreas Hocevar)
+          See: http://osgeo-org.1560.x6.nabble.com/Getting-the-right-results-from-Measure-tool-using-EPSG-3776-td3921884.html#a3921894
+        */
+        line: new OpenLayers.Control.DynamicMeasure(
+                OpenLayers.Handler.Path, {geodesic:true}),
         polygon: new OpenLayers.Control.DynamicMeasure(
-                                                    OpenLayers.Handler.Polygon)
+                OpenLayers.Handler.Polygon, {geodesic:true})
     };
     map.addControls([
         measureControls.line,

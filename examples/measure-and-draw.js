@@ -53,10 +53,14 @@ map.setCenter(new OpenLayers.LonLat(0, 0), 3);
 
 // Create the control collection to draw vectorial features.
 var controls = {
-    line: new OpenLayers.Control.DynamicMeasure(
-                OpenLayers.Handler.Path, {drawingLayer: vectorLayer}),
-    polygon: new OpenLayers.Control.DynamicMeasure(
-                OpenLayers.Handler.Polygon, {drawingLayer: vectorLayer})
+    line: new OpenLayers.Control.DynamicMeasure(OpenLayers.Handler.Path, {
+        drawingLayer: vectorLayer, 
+        geodesic: true // required by projection "EPSG:4326"
+    }),
+    polygon: new OpenLayers.Control.DynamicMeasure(OpenLayers.Handler.Polygon, {
+        drawingLayer: vectorLayer,
+        geodesic: true // required by projection "EPSG:4326"
+    })
 };
 // add this controls to the map
 for (var key in controls) {
