@@ -8,6 +8,7 @@
     for measure and draw vector features with label persistance.">
     <meta name="keywords" content="OpenLayers, vertices, draw, drawing, modify, 
     delete">
+    <link rel="stylesheet" href="http://jorix.github.com/OL-Ragbag/examples/github-pages/forkme_banner.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -28,6 +29,7 @@
   <body>
     <h1 id="title">Example of OpenLayers to measure and draw features with
     persitent labels</h1>
+    <a id="forkme_banner" href="https://github.com/jorix/OL-Ragbag/blob/gh-pages/README.md">View on GitHub</a>
     <div id="tags">vertices, draw, measure, drawing, modify, delete</div>
     <div id="shortdesc">Example of DynamicMeasure control for measure and draw vector features.</div>
     <div id="map" class="smallmap"></div>
@@ -47,6 +49,12 @@
             </li>
         </ul>
     </div>
+    <div id="emptyKeepedNote"><p>When DynamicMeasure is created with <code>keep=true</code>.
+    We have to call the emptyKeeped method on the control to remove annotations.</p></div>
+    <div>
+        <p><button onclick="emptyAllKeeped()">Empty keeped annotations!</button></p>
+    </div>
+    
     <div id="docs">
         <p>
             View the <a href="measure-and-keep.js" target="_blank">measure-and-keep.js</a> 
