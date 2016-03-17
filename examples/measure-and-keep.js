@@ -153,9 +153,17 @@ function toggleControl(element) {
 }
 
 function emptyAllKeeped() {
+    var lineActive = controls.line.active,
+        polygonActive = controls.polygon.active;
     controls.line.deactivate();
     controls.line.emptyKeeped();
     controls.polygon.deactivate();
     controls.polygon.emptyKeeped();
+    if (lineActive) {
+        controls.line.activate();
+    }
+    if (polygonActive) {
+        controls.polygon.activate();
+    }
 }
 
