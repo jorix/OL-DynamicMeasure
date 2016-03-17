@@ -153,7 +153,9 @@ function toggleControl(element) {
 }
 
 function emptyAllKeeped() {
+    controls.line.deactivate();
     controls.line.emptyKeeped();
+    controls.polygon.deactivate();
     controls.polygon.emptyKeeped();
 }
 
