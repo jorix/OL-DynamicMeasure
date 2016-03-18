@@ -39,6 +39,8 @@ See the example [measure-dynamic-dev.html](http://jorix.github.com/OL-DynamicMea
 
 The control can use it as a `DrawFeature` control, see example [measure-and-draw.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-and-draw.html)
 
+Measure annotations are shown for the current measurement by default. They can be keeped for all measures using the `keep` property, see example [measure-and-keep.html](http://jorix.github.com/OL-DynamicMeasure/examples/measure-and-keep.html)
+
 Documentation:
 --------------
  * [API for users](http://jorix.github.com/OL-DynamicMeasure/doc/DynamicMeasure/api)
