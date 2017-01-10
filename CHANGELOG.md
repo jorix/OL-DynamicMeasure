@@ -10,6 +10,17 @@ On development
 (open for suggestions)
 
 
+[v1.2.2](https://github.com/jorix/OL-DynamicMeasure/tree/v1.2.2)
+----------------------------------------------------------------
+
+#### Improvements
+ * Allows persistent annotations after measurement ([pull #9](https://github.com/jorix/OL-DynamicMeasure/pull/9))
+ 
+#### Bugs
+ * Fix: Overriding labels problem ([issue #7](https://github.com/jorix/OL-DynamicMeasure/issues/7))
+ * Fix problems in examples.
+
+
 [v1.2.1](https://github.com/jorix/OL-DynamicMeasure/tree/v1.2.1)
 ----------------------------------------------------------------
 
